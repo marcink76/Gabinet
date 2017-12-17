@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Logowanie</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<form action="/login" method="post">
+    Login:<br/>
+    <input type="text" name="username"/><br/>
+    Hasło:<br/>
+    <input type="password" name="password"/><br/>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+    <input type="submit" value="Zaloguj"/>
+</form>
+
+</body>
+</html>

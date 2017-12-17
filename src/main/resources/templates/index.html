@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Przykład Tymeleaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+Witam na stronie po zalogowaniu!
+<h1>Operacje na kalendarzu:</h1>
+<form th:action="@{'/showcalendar'}" method="get">
+    <button value="Nacisnij">Wejdz tam gdzie mozesz zrobic cos z kalendarzem</button>
+</form>
+<form th:action="@{'/customer/showall'}" method="get">
+    <button value="Nacisnij">pokaz klientów</button>
+</form>
+<form th:action="@{'/employee/showall'}" method="get">
+    <button value="Nacisnij">Pokaż pracowników</button>
+</form>
+<form th:action="@{'/employee/add'}" method="get">
+    <button value="Nacisnij">Dodaj pracownika</button>
+</form>
+<form th:action="@{'/customer/addCustomer'}" method="get">
+    <button value="Nacisnij">Dodaj klienta</button>
+</form>
+<form th:action="@{'/termin/addtermin'}" method="get">
+    <button value="Nacisnij">dodaj termin</button>
+</form>
+<form th:action="@{'/treatment/add'}" method="get">
+    <button value="Nacisnij">dodaj zabieg</button>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dodaj użytkownika</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Dodawanie użytkownika</h1>
+
+<form th:action="@{/customer/addcustomertobase}" method="post" th:object="${customer}">
+    <p>Imię:</p>
+    <input type="text" th:field="*{name}"/>
+    <p>Nazwisko:</p>
+    <input type="text" th:field="*{lastName}"/>
+    <p>Email:</p>
+    <input type="email" th:field="*{email}"/>
+    <p>Hasło:</p>
+    <input type="password" th:field="*{password}"/>
+    <p>Data urodzin:</p>
+    <input type="date" th:field="*{birthDay}"/>
+    <input type="submit" value="dodaj"/>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{'/treatment/addtreatment'}" method="post" th:object="${treatment}">
+    <p>Nazwa zabiegu</p>
+    <input type="text" th:field="*{name}" />
+    <p>Cena</p>
+    <input type="number" th:field="*{price}"/>
+    <p>Czas trwania</p>
+    <input type="time" th:field="*{durationTime}"/>
+    <input type="submit" value="Wprowadz zabieg"/>
+
+
+</form>
+
+</body>
+</html>

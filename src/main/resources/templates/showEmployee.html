@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Logowanie</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<table>
+    <tr th:each="employeeList:${employeeList}">
+        <td th:text="${employeeList.id}"></td>
+        <td th:text="${employeeList.name}"></td>
+        <td th:text="${employeeList.lastName}"></td>
+        <td th:text="${employeeList.workStart}"></td>
+        <td th:text="${employeeList.username}"></td>
+        <td th:text="${employeeList.salary}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <form th:action="@{/employee/add_employee_to_base}" method="post" th:object="${employee}">
+        <p>Imię:</p>
+        <input type="text" th:field="*{name}"/>
+        <p>Nazwisko:</p>
+        <input type="text" th:field="*{lastName}"/>
+        <p>Nazwa użytkownika:</p>
+        <input type="text" th:field="*{username}"/>
+        <p>Status w firmie:</p>
+        <input type="date" th:field="*{workStart}"/>
+        <p>Aktywny:</p>
+        <input type="checkbox" th:field="*{enabled}"/>
+        <p>Hasło:</p>
+        <input type="password" th:field="*{password}"/>
+        <p>Wynagrodzenie:</p>
+        <input type="number" th:field="*{salary}"/>
+        <input type="submit" value="Wprowadź"/>
+     </form>
+
+</body>
+</html>

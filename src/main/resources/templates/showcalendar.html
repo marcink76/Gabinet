@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Przykład Tymeleaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+Powinien pokazać się kalendarz! :)
+<table>
+    <tr th:each="workingDays:${workingDays}">
+        <td th:text="${workingDays.date}">Data</td>
+        <td th:text="${workingDays.openTime}">rozpoczęcie</td>
+        <td th:text="${workingDays.closeTime}">zakonczenie</td>
+        <td th:text="${workingDays.dayName}">SATURDAY</td>
+    </tr>
+</table>
+</body>
+</html>

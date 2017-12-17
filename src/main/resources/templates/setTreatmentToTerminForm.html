@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<h1>Dodaj zabiegi do wykonania:</h1>
+<body>
+<form th:action="@{/termin/settratment/}" method="post">
+    <table>
+        <tr th:each="treatmentList:${treatmentList}">
+            <td th:text="${treatmentList.name}"></td>
+            <td><input type="checkbox" th:value="${treatmentList.id}"/>Golenie pach</td>
+        </tr>
+    </table>
+    <input type="submit" value="Dodaj zabiegi"/>
+</form>
+</body>
+</html>

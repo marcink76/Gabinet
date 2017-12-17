@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Przykład Tymeleaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>Operacje na kalendarzu</p>
+<form th:action="@{'/calendargenerator'}">
+    <button value="Nacisnij">Nacisnij by dodać kalendarz</button>
+</form>
+<form th:action="@{'/showall'}">
+    <button value="Nacisnij">pokaz</button>
+</form>
+<form th:action="@{'/showcurrentmonth'}" method="get">
+    <input type="number" min="1" max="12" name="month" th:value="${month}"/>
+    <button value="Nacisnij">pokaz</button>
+</form>
+</body>
+</html>

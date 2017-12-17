@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Wskaż miesiąc:</title>
+</head>
+<body>
+<form th:action="@{'/termin/settermin'}" method="post" th:object="${termin}">
+    <input type="hidden" name="user" th:value="${user}"/>
+    <input type="date" name="date" th:field="${termin.startDate}"/>
+    <input type="submit" value="dodaj"/>
+</form>
+</body>
+</html>
