@@ -32,9 +32,6 @@ public class TerminController {
     @Autowired
     private TreatmentService treatmentService;
 
-    @Autowired
-    private TermService termService;
-
 
     @GetMapping("/setEmployeeToTermin")
     private String addEmployeeToTermin(Model model) {
