@@ -57,12 +57,13 @@ public class TerminController {
     }
 
     @PostMapping("/setTreatmentToTermin")
-    private String getUserId(@RequestParam Long customerId,
+    public String getUserId(@RequestParam Long customerId,
                              @RequestParam Long terminId,
                              Model model) {
         List<Treatment> treatmentList = treatmentService.getAllTreatments(); //pobranie listy zabiegów
         Termin termin = terminRepositoryInt.findOne(terminId);
         Customer customer = customerRepositoryInt.getOne(customerId); // Pobranie klienta o id
+
         termin.setCustomer(customer); // przypisanie klienta do terminu
         terminRepositoryInt.save(termin);
         model.addAttribute("treatmentList", treatmentList); // model z listą zabiegów ->

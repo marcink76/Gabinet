@@ -30,8 +30,8 @@ public class Customer {
     private LocalDateTime registrationTime;
 
 
-    @OneToOne
-    private Termin termin;
+    @OneToMany
+    private List<Termin> termin;
 
     public Customer() {
     }
@@ -108,11 +108,11 @@ public class Customer {
         this.registrationTime = registrationTime;
     }
 
-    public Termin getTermin() {
+    public List<Termin> getTermin() {
         return termin;
     }
 
-    public void setTermin(Termin termin) {
+    public void setTermin(List<Termin> termin) {
         this.termin = termin;
     }
 

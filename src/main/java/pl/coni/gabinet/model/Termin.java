@@ -26,8 +26,8 @@ public class Termin {
     @OneToOne
     private Employee employee;
 
-    @OneToOne
-    @JoinColumn(name = "customer_id", unique = true)
+    @ManyToOne
+    @JoinColumn
     private Customer customer;
 
     @OneToMany
