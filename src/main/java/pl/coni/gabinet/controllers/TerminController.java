@@ -11,7 +11,6 @@ import pl.coni.gabinet.model.Customer;
 import pl.coni.gabinet.repositories.EmployeeRepositoryInt;
 import pl.coni.gabinet.repositories.TerminRepositoryInt;
 import pl.coni.gabinet.repositories.CustomerRepositoryInt;
-import pl.coni.gabinet.service.TermService;
 import pl.coni.gabinet.service.TreatmentService;
 
 import java.time.LocalDate;
