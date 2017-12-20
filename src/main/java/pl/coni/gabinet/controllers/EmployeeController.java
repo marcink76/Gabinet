@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coni.gabinet.model.Employee;
 import pl.coni.gabinet.service.EmployeeService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -30,7 +32,8 @@ public class EmployeeController {
         return "addEmployeeForm";
     }
     @PostMapping("/add_employee_to_base")
-    private String addEmpToBase(Employee employee){
+    private String addEmpToBase(@Valid @ModelAttribute("employee")Employee employee){
+        employee.setEnabled(true);
         employeeService.addEmployee(employee);
         return "redirect:add";
     }

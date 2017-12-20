@@ -18,8 +18,10 @@
     <input type="password" th:field="*{password}"/>
     <p>Data urodzin:</p>
     <input type="date" th:field="*{birthDay}"/>
+    <p>Numer telefonu:</p>
+    <input type="number" pattern="[0-9]{9}" th:field="*{phoneNumber}"/>
     <input type="submit" value="dodaj"/>
-
+    <a th:href="@{/}">Powrót do strony głównej</a>
 </form>
 </body>
 </html>

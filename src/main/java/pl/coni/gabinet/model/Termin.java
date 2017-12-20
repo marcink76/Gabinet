@@ -1,51 +1,49 @@
 package pl.coni.gabinet.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
 public class Termin {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue()
     private long id;
-    private Date startDate;
-    private Date endDate;
-    private Time summaryDurationTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime startTime;
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime endTime;
+    private LocalTime summaryDurationTime;
 
     @OneToOne
     private Employee employee;
 
     @OneToOne
-    private Customer user;
+    @JoinColumn(name = "customer_id", unique = true)
+    private Customer customer;
 
     @OneToMany
     private List<Treatment> treatmentList;
 
-    public Termin(Date startDate, Date endDate, Time summaryDurationTime) {
-        this.startDate = startDate;
-        this.endDate = endDate;
+    public Termin(LocalDate date, LocalTime startTime, LocalTime endTime, LocalTime summaryDurationTime, Employee employee, Customer user, List<Treatment> treatmentList) {
+        this.date = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.summaryDurationTime = summaryDurationTime;
+        this.employee = employee;
+        this.customer = customer;
+        this.treatmentList = treatmentList;
     }
 
     public Termin() {
-    }
-
-    public Customer getUser() {
-        return user;
-    }
-
-    public void setUser(Customer user) {
-        this.user = user;
-    }
-
-    public List<Treatment> getTreatmentList() {
-        return treatmentList;
-    }
-
-    public void setTreatmentList(List<Treatment> treatmentList) {
-        this.treatmentList = treatmentList;
     }
 
     public long getId() {
@@ -56,27 +54,35 @@ public class Termin {
         this.id = id;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public LocalTime getStartTime() {
+        return startTime;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
     }
 
-    public Time getSummaryDurationTime() {
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
+    }
+
+    public LocalTime getSummaryDurationTime() {
         return summaryDurationTime;
     }
 
-    public void setSummaryDurationTime(Time summaryDurationTime) {
+    public void setSummaryDurationTime(LocalTime summaryDurationTime) {
         this.summaryDurationTime = summaryDurationTime;
     }
 
@@ -86,5 +92,35 @@ public class Termin {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<Treatment> getTreatmentList() {
+        return treatmentList;
+    }
+
+    public void setTreatmentList(List<Treatment> treatmentList) {
+        this.treatmentList = treatmentList;
+    }
+
+    @Override
+    public String toString() {
+        return "Termin{" +
+                "id=" + id +
+                ", date=" + date +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", summaryDurationTime=" + summaryDurationTime +
+                ", employee=" + employee +
+                ", customer=" + customer +
+                ", treatmentList=" + treatmentList +
+                '}';
     }
 }

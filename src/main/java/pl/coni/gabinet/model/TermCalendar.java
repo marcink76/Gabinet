@@ -1,5 +1,7 @@
 package pl.coni.gabinet.model;
 
+//TODO probably useless, to delete
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;

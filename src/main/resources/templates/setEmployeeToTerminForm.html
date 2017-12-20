@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Logowanie</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<form th:action="@{/termin/setCustomerToTermin}" method="post">
+
+    <button th:each="employeeList:${employeeList}" th:text="${employeeList.lastName}+''+${employeeList.name}"
+            name="employId"
+            th:value="${employeeList.id}">
+    </button>
+
+
+</form>
+<a th:href="@{/}">Powrót do strony głównej</a>
+
+
+</body>
+</html>

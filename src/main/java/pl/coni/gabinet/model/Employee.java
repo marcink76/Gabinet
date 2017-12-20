@@ -1,6 +1,9 @@
 package pl.coni.gabinet.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
@@ -8,10 +11,14 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotNull
     private String name;
+    @NotNull
     private String lastName;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate workStart;
     private String role;
+    @NotNull
     private String username;
     private boolean enabled;
     private String password;
@@ -22,6 +29,9 @@ public class Employee {
 
     @OneToOne
     private Termin termin;
+
+    @OneToOne
+    private EmployeeSchedule employeeSchedule;
 
     public Employee() {
     }

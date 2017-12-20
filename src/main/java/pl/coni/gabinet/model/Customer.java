@@ -4,23 +4,28 @@ package pl.coni.gabinet.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private long id;
+    @NotNull
     @Column(name = "Imie")
     private String name;
+    @NotNull
     @Column(name = "Nazwisko")
     private String lastName;
     private String phoneNumber;
     private String email;
+    @NotNull
     private String password;
     private boolean enabled;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDay;
     private LocalDateTime registrationTime;
 
@@ -109,5 +114,21 @@ public class Customer {
 
     public void setTermin(Termin termin) {
         this.termin = termin;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                ", birthDay=" + birthDay +
+                ", registrationTime=" + registrationTime +
+                ", termin=" + termin +
+                '}';
     }
 }

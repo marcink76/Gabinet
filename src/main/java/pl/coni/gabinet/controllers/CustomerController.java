@@ -2,6 +2,7 @@ package pl.coni.gabinet.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.test.annotation.Timed;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,12 +21,13 @@ public class CustomerController {
     private CustomerRepositoryInt customerRepositoryInt;
 
     @GetMapping("/showall")
-    public String showAllUsers(Model model ){
+    public String showAllCustomers(Model model ){
         List<Customer> customerList = customerRepositoryInt.findAll();
         model.addAttribute("customerList", customerList);
         return "showCustomer";
     }
     @GetMapping("/addCustomer")
+
     private String addCustomerForm(Model model){
         model.addAttribute("customer", new Customer());
         return "addCustomer";
@@ -33,6 +35,7 @@ public class CustomerController {
     @PostMapping("/addcustomertobase")
     private String addCustomer(Customer customer){
         customer.setRegistrationTime(LocalDateTime.now());
+        customer.setEnabled(true);
         customerRepositoryInt.save(customer);
         return "redirect:addCustomer";
     }

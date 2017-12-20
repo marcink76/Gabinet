@@ -10,10 +10,12 @@
     <table>
         <tr th:each="treatmentList:${treatmentList}">
             <td th:text="${treatmentList.name}"></td>
-            <td><input type="checkbox" th:value="${treatmentList.id}"/>Golenie pach</td>
+            <td><input th:type="checkbox" th:value="${treatmentList.id}"/></td>
         </tr>
     </table>
     <input type="submit" value="Dodaj zabiegi"/>
 </form>
+<a th:href="@{/}">Powrót do strony głównej</a>
+
 </body>
 </html>

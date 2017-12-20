@@ -8,7 +8,7 @@
 Witam na stronie po zalogowaniu!
 <h1>Operacje na kalendarzu:</h1>
 <form th:action="@{'/showcalendar'}" method="get">
-    <button value="Nacisnij">Wejdz tam gdzie mozesz zrobic cos z kalendarzem</button>
+    <button value="Nacisnij">Zarządzanie kalendarzem</button>
 </form>
 <form th:action="@{'/customer/showall'}" method="get">
     <button value="Nacisnij">pokaz klientów</button>
@@ -22,7 +22,7 @@ Witam na stronie po zalogowaniu!
 <form th:action="@{'/customer/addCustomer'}" method="get">
     <button value="Nacisnij">Dodaj klienta</button>
 </form>
-<form th:action="@{'/termin/addtermin'}" method="get">
+<form th:action="@{'/termin/setEmployeeToTermin'}" method="get">
     <button value="Nacisnij">dodaj termin</button>
 </form>
 <form th:action="@{'/treatment/add'}" method="get">
