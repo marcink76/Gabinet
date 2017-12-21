@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<h1>Dodaj date</h1>
+<body>
+<form th:action="@{/termin/setDateToTermin/}" method="post">
+    <input type="hidden" th:name="terminId" th:value="${terminId}"/>
+    <input type="date" name="date"/>
+    <input type="time" name="time"/>
+    <input type="submit" value="Zapisz datę"/>
+</form>
+<a th:href="@{/}">Powrót do strony głównej</a>
+
+</body>
+</html>

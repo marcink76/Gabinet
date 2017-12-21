@@ -16,8 +16,6 @@ public class Treatment {
     @Column(name = "Czas_trwania")
     private LocalTime durationTime;
 
-    @ManyToOne
-    Termin termin;
 
     public Treatment(String name, double price, LocalTime durationTime) {
         this.name = name;
@@ -28,13 +26,7 @@ public class Treatment {
     public Treatment() {
     }
 
-    public Termin getTermin() {
-        return termin;
-    }
 
-    public void setTermin(Termin termin) {
-        this.termin = termin;
-    }
 
     public int getId() {
         return id;

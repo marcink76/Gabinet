@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
+<p th:text="${message}"></p>
 <form th:action="@{/termin/setTreatmentToTermin}" method="post">
     <input type="hidden" th:name="terminId" th:value="${terminId}"/>
     <button th:each="customerList:${customerList}" th:text="${customerList.name}+''+${customerList.lastName}"

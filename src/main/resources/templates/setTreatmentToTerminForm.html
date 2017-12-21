@@ -6,11 +6,13 @@
 </head>
 <h1>Dodaj zabiegi do wykonania:</h1>
 <body>
-<form th:action="@{/termin/settratment/}" method="post">
+<form th:action="@{/termin/setDateToTermin/}" method="post">
+    <input type="hidden" th:name="terminId" th:value="${terminId}"/>
     <table>
         <tr th:each="treatmentList:${treatmentList}">
             <td th:text="${treatmentList.name}"></td>
-            <td><input th:type="checkbox" th:value="${treatmentList.id}"/></td>
+            <td><input type="checkbox" th:name="${treatmentList.id}" th:field="*{treatmentList}"
+                       th:value="addtolist"/></td>
         </tr>
     </table>
     <input type="submit" value="Dodaj zabiegi"/>

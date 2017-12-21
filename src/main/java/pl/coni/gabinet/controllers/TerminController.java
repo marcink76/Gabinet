@@ -51,6 +51,7 @@ public class TerminController {
         long terminId = termin.getId();
 
         List<Customer> customerList = customerRepositoryInt.findAll();
+        model.addAttribute("message", employee.getLastName());
         model.addAttribute("terminId", terminId);
         model.addAttribute("customerList", customerList);
         return "setCustomerToTerminForm";
@@ -58,12 +59,12 @@ public class TerminController {
 
     @PostMapping("/setTreatmentToTermin")
     public String getUserId(@RequestParam Long customerId,
-                             @RequestParam Long terminId,
-                             Model model) {
+                            @RequestParam Long terminId,
+                            Model model) {
         List<Treatment> treatmentList = treatmentService.getAllTreatments(); //pobranie listy zabiegów
         Termin termin = terminRepositoryInt.findOne(terminId);
         Customer customer = customerRepositoryInt.getOne(customerId); // Pobranie klienta o id
-
+        model.addAttribute("terminId", terminId);
         termin.setCustomer(customer); // przypisanie klienta do terminu
         terminRepositoryInt.save(termin);
         model.addAttribute("treatmentList", treatmentList); // model z listą zabiegów ->
@@ -71,17 +72,24 @@ public class TerminController {
     }
 
 
-    @PostMapping("/settratment")
-    private String showTermins(Model model, Termin termin) {
+    @PostMapping("/setDateToTermin")
+    private String showTermins(@RequestParam Long terminId,
+                               @ModelAttribute("Treatment") Treatment treatment,
+                               Model model) {
+        model.addAttribute("terminId", terminId);
+        Termin termin = terminRepositoryInt.findOne(terminId);
         List<Treatment> treatmentList = treatmentService.getAllTreatments();
         model.addAttribute("treatmentList", treatmentList);
         termin.setTreatmentList(treatmentList); // przypisanie zabiegów do terminu
-        return "setTreatmentToTerminForm";
+        return "setDateToTerminForm";
     }
 
+//    @PostMapping("/setDateToTermin")
+//    private String
 
 
-    @GetMapping("/add")
+    //@GetMapping("/add")
+
     private String addTermin(Model model) {
         LocalDate localDate = LocalDate.now();
 
