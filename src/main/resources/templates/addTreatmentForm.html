@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+
 <form th:action="@{'/treatment/addtreatment'}" method="post" th:object="${treatment}">
     <p>Nazwa zabiegu</p>
     <input type="text" th:field="*{name}" />

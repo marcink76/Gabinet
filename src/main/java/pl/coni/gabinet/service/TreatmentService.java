@@ -23,7 +23,9 @@ public class TreatmentService {
     return treatmentRepositoryInt.findAll();
     }
 
-    public void setUserToTerm(Customer user, Termin termin){
-
+    public Treatment getTerm(long id){
+        return treatmentRepositoryInt.findOne(id);
     }
+
+
 }

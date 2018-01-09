@@ -3,36 +3,33 @@ package pl.coni.gabinet.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.Duration;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 public class Treatment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String name;
     private double price;
     @DateTimeFormat(pattern = "HH:mm")
     @Column(name = "Czas_trwania")
     private LocalTime durationTime;
 
+    @ManyToMany
+    List<Termin> terminList;
 
-    public Treatment(String name, double price, LocalTime durationTime) {
-        this.name = name;
-        this.price = price;
-        this.durationTime = durationTime;
-    }
 
     public Treatment() {
     }
 
-
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -58,5 +55,13 @@ public class Treatment {
 
     public void setDurationTime(LocalTime durationTime) {
         this.durationTime = durationTime;
+    }
+
+    public List<Termin> getTerminList() {
+        return terminList;
+    }
+
+    public void setTerminList(List<Termin> terminList) {
+        this.terminList = terminList;
     }
 }

@@ -30,7 +30,7 @@ public class Termin {
     @JoinColumn
     private Customer customer;
 
-    @OneToMany
+    @ManyToMany
     private List<Treatment> treatmentList;
 
     public Termin(LocalDate date, LocalTime startTime, LocalTime endTime, LocalTime summaryDurationTime, Employee employee, Customer user, List<Treatment> treatmentList) {

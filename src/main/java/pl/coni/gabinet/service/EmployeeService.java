@@ -16,6 +16,9 @@ public class EmployeeService {
     public List<Employee> getAllEmployee(){
         return employeeRepositoryInt.findAll();
     }
+    public Employee getOneEmployee(Long id){
+        return employeeRepositoryInt.findOne(id);
+    }
     public void addEmployee(Employee employee){
         employeeRepositoryInt.save(employee);
     }
